@@ -1,7 +1,9 @@
-# Telegram passwordless login for ASP.NET Core — OpenID Connect in Docker
+# Telegram login for ASP.NET Core — passwordless Telegram authentication over OpenID Connect (OIDC)
 
-Passwordless sign-in through Telegram for an ASP.NET Core app: a standard OpenID Connect (OIDC)
-provider in one Docker container, plus a minimal client app that signs in against it.
+Sign in with Telegram for an ASP.NET Core app, with no password: a standard OpenID Connect (OIDC)
+provider in one Docker container, plus a minimal client app that signs in against it. Login with
+Telegram works the same way on any other stack with an OIDC library: QR code login on a computer and
+one tap on a phone instead of a password or an SMS code.
 
 ## What you get
 
@@ -10,10 +12,11 @@ your phone; on the phone itself you tap a button. Telegram opens your bot, you c
 — and you are back in the app, signed in, looking at the claims the provider issued. No password,
 no form, no SMS code.
 
-The provider is [Veriqa](https://veriqa.app): an OpenID Connect server built on OpenIddict that
-confirms sign-ins in messaging apps — Telegram, WhatsApp, other channels or Email. The client knows
-nothing about Veriqa: it is the stock ASP.NET Core OpenID Connect handler (Authorization Code +
-PKCE), so the same setup works for any stack with an OIDC library.
+The provider is [Veriqa](https://veriqa.app): an open-source OpenID Connect provider built on
+OpenIddict that confirms sign-ins in messaging apps — Telegram, WhatsApp, Instagram, Messenger,
+WeChat, Viber, other channels or Email. The client knows nothing about Veriqa: it is the stock
+ASP.NET Core OpenID Connect handler (Authorization Code + PKCE), so the same setup works for any
+stack with an OIDC library.
 
 Each folder next to `clients/` is one way to connect Telegram, with a stand of its own; they share the
 client app in `clients/dotnet/`. `built-in/` uses the Telegram channel built into Veriqa.
